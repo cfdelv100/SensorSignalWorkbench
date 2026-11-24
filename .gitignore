@@ -1,0 +1,51 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# Compiled binaries
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.so
+*.a
+*.o
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# IDE files
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Logs
+*.log
+
+# Generated datasets
+data/generated/*
+
+# Keep sample dataset folder tracked
+!data/generated/.gitkeep
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
