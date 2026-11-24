@@ -25,6 +25,9 @@ FetchContent_MakeAvailable(Catch2)
 # executable app main
 add_executable(ssaw
     src/main.cpp
+
+    src/core/models/SignalMetadata.cpp 
+    src/core/models/SignalMetadata.hpp 
 )
 
 # including directories
