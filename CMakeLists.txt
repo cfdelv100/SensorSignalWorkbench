@@ -27,7 +27,10 @@ add_executable(ssaw
     src/main.cpp
 
     src/core/models/SignalMetadata.cpp 
-    src/core/models/SignalMetadata.hpp 
+    src/core/models/SignalMetadata.hpp
+    
+    src/core/models/SignalData.cpp
+    src/core/models/SignalData.hpp
 )
 
 # including directories
