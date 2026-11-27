@@ -1,6 +1,9 @@
 #include "SignalMetadata.hpp"
 #include <utility>
 #include <string>
+#include <cmath>
+#include <stdexcept>
+
 
 using namespace std;
 
@@ -19,7 +22,17 @@ namespace ssaw::core::models{
           samplingFrequency_(samplingFrequency),
           sensorIdentifier_(move(sensorIdentifier)),
           description_(move(description))
-        {}
+        {
+            if(signalName_.empty()){
+                throw invalid_argument("Signal name cannot be empty.");
+            }
+            if(measurementUnit_.empty()){
+                throw invalid_argument("Measurement unit cannnot be empty.");
+            }
+            if(!isfinite(samplingFrequency_) || samplingFrequency_ <= 0.0){
+                throw invalid_argument("Sampling frequency must be a finite positive value.");
+            }
+        }
 
 
     const string& SignalMetadata::getSignalName() const{

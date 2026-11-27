@@ -1,11 +1,25 @@
 #include "SignalData.hpp"
-
+#include <algorithm>
+#include <cmath>
+#include <stdexcept>
 #include <utility>
 
 namespace ssaw::core::models{
     SignalData::SignalData(SignalMetadata metadata, std::vector<double> measurements)
         : metadata_(std::move(metadata)), measurements_(std::move(measurements))
-    {}
+    {
+        const bool containsInvalidMeasurment = std::any_of(
+            measurements_.begin(),
+            measurements_.end(),
+            [](double value){
+                return !std::isfinite(value);
+            }
+        );
+
+        if(containsInvalidMeasurment){
+            throw std::invalid_argument("Signal measurements must contain only finite values.");
+        }
+    }
 
     const SignalMetadata& SignalData::getMetadata() const{
         return metadata_;
