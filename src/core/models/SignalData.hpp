@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <vector>
 
-namespace ssaw::core:models{
+namespace ssaw::core::models{
     class SignalData{
         public:
             //constructor
